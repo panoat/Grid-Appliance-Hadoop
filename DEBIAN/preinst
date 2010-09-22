@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Create 'hadoopuser' user if it does not exist
+hadoop_user=`grep "^hadoopuser:" /etc/passwd | awk -F":" {'print $1'}`
+
+if [ "$hadoop_user" = "hadoopuser" ]; then
+	# hadoop user exists
+	echo "deleting existing user 'hadoopuser'"
+	userdel hadoopuser 
+fi
+
+echo "adding new user 'hadoopuser'"
+password=$(echo password | openssl passwd -1 -stdin)
+useradd -b /home -d /home/hadoopuser -m -s /bin/bash -c "For grid-appliance-hadoop" -U --groups users,admin,plugdev,lpadmin,sambashare -p $password hadoopuser 
+
+exit 0

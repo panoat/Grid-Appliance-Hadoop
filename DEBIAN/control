@@ -1,0 +1,11 @@
+Package: grid-appliance-hadoop
+Priority: optional
+Section: net 
+Installed-Size: 40636 
+Maintainer: Arjun Prakash <arjun.prakash@ufl.edu> 
+Architecture: all 
+Depends: grid-appliance-base,openssh-server, adduser, sun-java6-jre, avahi-daemon (>= 0.6.25), avahi-utils (>= 0.6.25)
+Description: Hadoop is a software platform that lets one easily write and
+ run applications that process vast amounts of data.
+ Using hadoop on grid appliance allows you to create and configure virtual clusters easily.
+Version: 0.01
